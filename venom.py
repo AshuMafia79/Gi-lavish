@@ -8,7 +8,7 @@ import string
 import datetime
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-from config import BOT_TOKEN, ADMIN_IDS, OWNER_USERNAME
+from config import 7240966462:AAFyoFxDwi3qciu6x_Ha4D9hUQXqjFSDzQA, -4212493292, @AnuvenomBot
 
 
 USER_FILE = "users.json"
@@ -132,9 +132,9 @@ async def allusers(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
                 except Exception:
                     response += f"- User ID: {user_id} expires on {expiration_date}\n"
         else:
-            response = f"No data found OWNER- @{OWNER_USERNAME}..."
+            response = f"No data found OWNER- @{AnuvenomBot}..."
     else:
-        response = f"ONLY OWNER CAN USE.OWNER- @{OWNER_USERNAME}..."
+        response = f"ONLY OWNER CAN USE.OWNER- @{AnuvenomBot}..."
     await update.message.reply_text(response)
 
 
@@ -163,7 +163,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = str(update.message.from_user.id)
 
     if user_id not in users or datetime.datetime.now() > datetime.datetime.strptime(users[user_id], '%Y-%m-%d %H:%M:%S'):
-        await update.message.reply_text("❌ Access expired or unauthorized. Please redeem a valid key.")
+        await update.message.reply_text("hello.")
         return
 
     if flooding_process is not None:
@@ -183,7 +183,7 @@ async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = str(update.message.from_user.id)
 
     if user_id not in users or datetime.datetime.now() > datetime.datetime.strptime(users[user_id], '%Y-%m-%d %H:%M:%S'):
-        await update.message.reply_text("❌ Access expired or unauthorized. Please redeem a valid key.")
+        await update.message.reply_text("hello.")
         return
 
     if flooding_process is None:
@@ -197,7 +197,7 @@ async def stop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = str(update.message.from_user.id)
-    if user_id in ADMIN_IDS:
+    if user_id in ADMIN_IDS:-4212493292
         message = ' '.join(context.args)
         if not message:
             await update.message.reply_text('Usage: /broadcast <message>')
@@ -231,7 +231,7 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> No
     await update.message.reply_text(response)
 
 def main() -> None:
-    application = ApplicationBuilder().token(BOT_TOKEN).build()
+    application = ApplicationBuilder().token(7240966462:AAFyoFxDwi3qciu6x_Ha4D9hUQXqjFSDzQA).build()
 
     application.add_handler(CommandHandler("genkey", genkey))
     application.add_handler(CommandHandler("redeem", redeem))
